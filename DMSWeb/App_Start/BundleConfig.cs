@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace DocumentManagementSystem
+namespace DMSWeb
 {
     public class BundleConfig
     {

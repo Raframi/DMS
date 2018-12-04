@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("DocumentManagementSystem")]
+[assembly: AssemblyTitle("DMSWeb")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("DocumentManagementSystem")]
+[assembly: AssemblyProduct("DMSWeb")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("01026e57-b9a3-4120-a66b-022eda582070")]
+[assembly: Guid("ec4541db-b608-457b-a7a6-3ecdfe057526")]
 
 // Version information for an assembly consists of the following four values:
 //
