@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace DMSDAL
 {
-    public class DocumentManagerEntities : DbContext
+    public class DMSDbContext : DbContext
     {
-        public DocumentManagerEntities()
-            : base("name=DocumentManagerEntities")
+        public DMSDbContext() : base("name=DMSDbContext")
         {
+            //Database.SetInitializer<DMSDbContext>(new DropCreateDatabaseAlways<DMSDbContext>());
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -21,6 +21,7 @@ namespace DMSDAL
             
         }
 
-        public virtual DbSet<DocumentType> DocumentTypes { get; set; }
+        public virtual DbSet<DocumentType> DocumentType { get; set; }
+        public virtual DbSet<Keyword> Keyword { get; set; }
     }
 }

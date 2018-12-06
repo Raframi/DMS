@@ -1,4 +1,4 @@
-﻿@model DMSModels.DocumentType
+﻿@model DMSModels.Keyword
 
 @{
     ViewBag.Title = "Edit";
@@ -12,16 +12,16 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>DocumentType</h4>
+        <h4>Keyword</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.DocumentTypeId)
+        @Html.HiddenFor(model => model.KeywordId)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.DocumentTypeName, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.KeywordName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.DocumentTypeName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DocumentTypeName, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.KeywordName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.KeywordName, "", new { @class = "text-danger" })
             </div>
         </div>
 

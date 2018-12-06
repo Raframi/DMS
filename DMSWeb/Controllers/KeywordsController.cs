@@ -12,107 +12,107 @@ using DMSModels;
 
 namespace DMSWeb.Controllers
 {
-    public class DocumentTypesController : Controller
+    public class KeywordsController : Controller
     {
         private DMSDbContext db = new DMSDbContext();
 
-        // GET: DocumentTypes
+        // GET: Keywords
         public async Task<ActionResult> Index()
         {
-            return View(await db.DocumentType.ToListAsync());
+            return View(await db.Keyword.ToListAsync());
         }
 
-        // GET: DocumentTypes/Details/5
+        // GET: Keywords/Details/5
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DocumentType documentType = await db.DocumentType.FindAsync(id);
-            if (documentType == null)
+            Keyword keyword = await db.Keyword.FindAsync(id);
+            if (keyword == null)
             {
                 return HttpNotFound();
             }
-            return View(documentType);
+            return View(keyword);
         }
 
-        // GET: DocumentTypes/Create
+        // GET: Keywords/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: DocumentTypes/Create
+        // POST: Keywords/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "DocumentTypeId,DocumentTypeName")] DocumentType documentType)
+        public async Task<ActionResult> Create([Bind(Include = "KeywordId,KeywordName")] Keyword keyword)
         {
             if (ModelState.IsValid)
             {
-                db.DocumentType.Add(documentType);
+                db.Keyword.Add(keyword);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
-            return View(documentType);
+            return View(keyword);
         }
 
-        // GET: DocumentTypes/Edit/5
+        // GET: Keywords/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DocumentType documentType = await db.DocumentType.FindAsync(id);
-            if (documentType == null)
+            Keyword keyword = await db.Keyword.FindAsync(id);
+            if (keyword == null)
             {
                 return HttpNotFound();
             }
-            return View(documentType);
+            return View(keyword);
         }
 
-        // POST: DocumentTypes/Edit/5
+        // POST: Keywords/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "DocumentTypeId,DocumentTypeName")] DocumentType documentType)
+        public async Task<ActionResult> Edit([Bind(Include = "KeywordId,KeywordName")] Keyword keyword)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(documentType).State = EntityState.Modified;
+                db.Entry(keyword).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(documentType);
+            return View(keyword);
         }
 
-        // GET: DocumentTypes/Delete/5
+        // GET: Keywords/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            DocumentType documentType = await db.DocumentType.FindAsync(id);
-            if (documentType == null)
+            Keyword keyword = await db.Keyword.FindAsync(id);
+            if (keyword == null)
             {
                 return HttpNotFound();
             }
-            return View(documentType);
+            return View(keyword);
         }
 
-        // POST: DocumentTypes/Delete/5
+        // POST: Keywords/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            DocumentType documentType = await db.DocumentType.FindAsync(id);
-            db.DocumentType.Remove(documentType);
+            Keyword keyword = await db.Keyword.FindAsync(id);
+            db.Keyword.Remove(keyword);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }

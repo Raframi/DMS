@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,12 @@ namespace DMSModels
 {
     public class DocumentType
     {
-        public int Id { get; set; }
-        public string DocumentName { get; set; }
+        public int DocumentTypeId { get; set; }
+
+        [Display(Name = "Document Type")]
+        [Required]
+        public string DocumentTypeName { get; set; }
+
+        public virtual ICollection<Keyword> Keywords { get; set; }
     }
 }
