@@ -9,6 +9,11 @@ namespace DMSModels
 {
     public class Keyword
     {
+        public Keyword()
+        {
+            this.DocumentTypes = new HashSet<DocumentType>();
+        }
+
         public int KeywordId { get; set; }
 
         [Display(Name = "Keyword")]
