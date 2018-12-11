@@ -133,6 +133,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DocumentTypesController.cs" />
+    <Compile Include="Controllers\DropZoneController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KeywordsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -152,6 +153,14 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Content\basic.css" />
+    <Content Include="Content\basic.min.css" />
+    <Content Include="Scripts\dropzone-amd-module.js" />
+    <Content Include="Scripts\dropzone-amd-module.min.js" />
+    <Content Include="Content\dropzone.css" />
+    <Content Include="Scripts\dropzone.js" />
+    <Content Include="Content\dropzone.min.css" />
+    <Content Include="Scripts\dropzone.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
@@ -184,6 +193,7 @@
     <Content Include="Views\DocumentTypes\Details.cshtml" />
     <Content Include="Views\DocumentTypes\Edit.cshtml" />
     <Content Include="Views\DocumentTypes\Index.cshtml" />
+    <Content Include="Views\DropZone\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
