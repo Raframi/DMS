@@ -39,7 +39,7 @@ namespace DMSWeb.Controllers
 
         // GET: DocumentTypes/Create
         public ActionResult Create()
-        {
+        {            
             return View();
         }
 
