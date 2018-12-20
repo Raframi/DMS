@@ -1,10 +1,10 @@
-﻿@model DMSModels.DocumentType
+﻿@model DMSModels.Models.DocumentType
 
 @{
     ViewBag.Title = "Create";
-}
-<link href="~/Content/bootstrap-multiselect.css" rel="stylesheet" />
 
+    //var Keywords = (List<Keyword>)ViewBag.Keywords;
+}
 
 <h2>Create</h2>
 
@@ -17,6 +17,8 @@
         <h4>DocumentType</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
         <div class="form-group">
             @Html.LabelFor(model => model.DocumentTypeName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -25,18 +27,27 @@
             </div>
         </div>
 
+
         <div class="form-group">
-            <label class="control-label col-md-2" for="Keywords">Keywords</label>
-            
-            <div class="col-md-10">
-                <select size="4" name="Keywords" multiple="multiple" id="Keywords" class="form-control">
-                    <option value="aberrocal">Adriana Berrocal</option>
-                    <option value="agfebres">Agripina Febres</option>
-                    <option value="Alberto.Rodriguez@pr.qbe.com">Alberto Rodriguez</option>
-                </select>
+            @Html.Label("Keywords", htmlAttributes: new { @class = "control-label col-md-2" })
+            <br />
+            <div class="container col-md-10">
+
+                @{
+                    List<DMSModels.ViewModels.AssignedKeyword> keywords = ViewBag.Keywords;
+                }
+                @foreach (var keyword in keywords)
+                {
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"
+                                   name="selectedKeywords"
+                                   value="@keyword.KeywordId" @(Html.Raw(keyword.Assigned ? "checked=\"checked\"" : "")) />@keyword.KeywordName
+                            </label>
+                        </div>
+                    }
             </div>
         </div>
-
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
@@ -50,33 +61,6 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 
-
-
-
-
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-    <script src="~/Scripts/bootstrap-multiselect.js"></script>
-
-    <script>
-        $(document).ready(function () {
-            $(function () {
-                $('[id*=Keywords]').multiselect({
-                    includeSelectAllOption: true,
-                    enableFiltering: true,
-                    maxHeight: 450,
-                    enableCaseInsensitiveFiltering: true,
-                    buttonWidth: '100%',
-                    onChange: function (element, checked) {
-                        var brands = $('[id*=Keywords] option:selected');
-                        var selected = [];
-                        $(brands).each(function (index, brand) {
-                            selected.push('  ' + [$(this).text()]);
-                        });                        
-                    }
-                });
-            });
-        });
-    </script>
-
 }

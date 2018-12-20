@@ -174,16 +174,16 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Keywords\Create.cshtml" />
-    <Content Include="Views\Keywords\Delete.cshtml" />
-    <Content Include="Views\Keywords\Details.cshtml" />
-    <Content Include="Views\Keywords\Edit.cshtml" />
-    <Content Include="Views\Keywords\Index.cshtml" />
     <Content Include="Views\DocumentTypes\Create.cshtml" />
     <Content Include="Views\DocumentTypes\Delete.cshtml" />
     <Content Include="Views\DocumentTypes\Details.cshtml" />
     <Content Include="Views\DocumentTypes\Edit.cshtml" />
     <Content Include="Views\DocumentTypes\Index.cshtml" />
+    <Content Include="Views\Keywords\Create.cshtml" />
+    <Content Include="Views\Keywords\Delete.cshtml" />
+    <Content Include="Views\Keywords\Details.cshtml" />
+    <Content Include="Views\Keywords\Edit.cshtml" />
+    <Content Include="Views\Keywords\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
