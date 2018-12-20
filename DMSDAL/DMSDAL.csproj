@@ -51,6 +51,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DMSDbContext.cs" />
+    <Compile Include="Migrations\201812061803349_InitialCreate.cs" />
+    <Compile Include="Migrations\201812061803349_InitialCreate.Designer.cs">
+      <DependentUpon>201812061803349_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812201842319_Added KeywordDataTyp.cs" />
+    <Compile Include="Migrations\201812201842319_Added KeywordDataTyp.Designer.cs">
+      <DependentUpon>201812201842319_Added KeywordDataTyp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -65,6 +74,14 @@
       <Project>{2888744D-995E-4566-BBF9-0FB4A63A711C}</Project>
       <Name>DMSModels</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201812061803349_InitialCreate.resx">
+      <DependentUpon>201812061803349_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812201842319_Added KeywordDataTyp.resx">
+      <DependentUpon>201812201842319_Added KeywordDataTyp.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

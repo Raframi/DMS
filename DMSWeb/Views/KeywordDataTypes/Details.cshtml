@@ -1,0 +1,26 @@
+﻿@model DMSModels.Models.KeywordDataType
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>KeywordDataType</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.KeywordDataTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KeywordDataTypeName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.KeywordDataTypeId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

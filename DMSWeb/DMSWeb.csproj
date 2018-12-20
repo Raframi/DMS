@@ -123,6 +123,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DocumentTypesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KeywordDataTypesController.cs" />
     <Compile Include="Controllers\KeywordsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -184,6 +185,11 @@
     <Content Include="Views\Keywords\Details.cshtml" />
     <Content Include="Views\Keywords\Edit.cshtml" />
     <Content Include="Views\Keywords\Index.cshtml" />
+    <Content Include="Views\KeywordDataTypes\Create.cshtml" />
+    <Content Include="Views\KeywordDataTypes\Delete.cshtml" />
+    <Content Include="Views\KeywordDataTypes\Details.cshtml" />
+    <Content Include="Views\KeywordDataTypes\Edit.cshtml" />
+    <Content Include="Views\KeywordDataTypes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

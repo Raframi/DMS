@@ -23,5 +23,7 @@ namespace DMSDAL
 
         public virtual DbSet<DocumentType> DocumentType { get; set; }
         public virtual DbSet<Keyword> Keyword { get; set; }
+        public virtual DbSet<KeywordDataType> KeywordDataTypes { get; set; }
+        
     }
 }
