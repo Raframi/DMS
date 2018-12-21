@@ -22,5 +22,6 @@ namespace DMSModels.Models
         public string KeywordName { get; set; }
 
         public virtual ICollection<DocumentType> DocumentTypes { get; set; }
+        public virtual KeywordDataType KeywordDataType { get; set; }
     }
 }

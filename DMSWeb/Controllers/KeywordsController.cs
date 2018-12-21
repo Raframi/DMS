@@ -51,8 +51,13 @@ namespace DMSWeb.Controllers
         {
             if (ModelState.IsValid)
             {
+                
                 db.Keyword.Add(keyword);
                 db.SaveChanges();
+
+                //Generates Table to store values for keyword created.
+                int result = db.Database.ExecuteSqlCommand("CREATE TABLE Keyword" + keyword.KeywordId + " (Keyword" + keyword.KeywordId + "Id int PRIMARY KEY NOT NULL, DocumentId int NOT NULL, Value VARCHAR(60) NULL) ");
+
                 return RedirectToAction("Index");
             }
 

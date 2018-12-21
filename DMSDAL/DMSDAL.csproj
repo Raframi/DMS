@@ -59,6 +59,10 @@
     <Compile Include="Migrations\201812201842319_Added KeywordDataTyp.Designer.cs">
       <DependentUpon>201812201842319_Added KeywordDataTyp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812202031165_Keyword Data Type.cs" />
+    <Compile Include="Migrations\201812202031165_Keyword Data Type.Designer.cs">
+      <DependentUpon>201812202031165_Keyword Data Type.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -81,6 +85,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812201842319_Added KeywordDataTyp.resx">
       <DependentUpon>201812201842319_Added KeywordDataTyp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812202031165_Keyword Data Type.resx">
+      <DependentUpon>201812202031165_Keyword Data Type.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
