@@ -1,14 +1,22 @@
-﻿using System;
+﻿using DMSDAL;
+using DMSModels.Models;
+using DMSModels.ViewModels;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Services;
 
 namespace DMSWeb.Controllers
 {
     public class DropZoneController : Controller
     {
+        private DMSDbContext db = new DMSDbContext();
         // GET: DropZone
         public ActionResult Index()
         {
@@ -80,6 +88,40 @@ namespace DMSWeb.Controllers
             {
                 return RedirectToAction("Index", new { Message = "Error in saving file" });
             }
+        }
+
+        public ActionResult Create()
+        {
+            ViewBag.DocumentType = db.DocumentType.ToList();
+            return View();
+        }
+
+        private void PopulateAssignedKeyword(DocumentType documentType)
+        {
+            var allKeywords = db.Keyword;
+            var documentTypeKeywords = new HashSet<int>(documentType.Keywords.Select(c => c.KeywordId));
+            var viewModel = new List<AssignedKeyword>();
+            foreach (var keyword in allKeywords)
+            {
+                viewModel.Add(new AssignedKeyword
+                {
+                    KeywordId = keyword.KeywordId,
+                    KeywordName = keyword.KeywordName,
+                    Assigned = documentTypeKeywords.Contains(keyword.KeywordId)
+                });
+            }
+            ViewBag.Keywords = viewModel;
+        }
+
+        [WebMethod]
+        public string PassArray(string DocumentTypeID)
+        {
+            var DocumentType = db.DocumentType.Include(cm => cm.Keywords).SingleOrDefault(x => x.DocumentTypeId == int.Parse(DocumentTypeID));
+
+
+
+            //Do your processing
+            return "success";
         }
     }
 }

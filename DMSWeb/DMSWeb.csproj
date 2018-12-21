@@ -122,6 +122,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DocumentTypesController.cs" />
+    <Compile Include="Controllers\DropZoneController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KeywordDataTypesController.cs" />
     <Compile Include="Controllers\KeywordsController.cs" />
@@ -197,6 +198,7 @@
     <Content Include="Views\KeywordDataTypes\Edit.cshtml" />
     <Content Include="Views\KeywordDataTypes\Index.cshtml" />
     <Content Include="Views\DropZone\Index.cshtml" />
+    <Content Include="Views\DropZone\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
