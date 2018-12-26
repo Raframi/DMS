@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DMSModels.ViewModels
+namespace DMSModels
 {
-    public class DropZeneKeyModel
+    class DropZone
     {
+        //Here go code
     }
 }

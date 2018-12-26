@@ -47,7 +47,6 @@
     <Compile Include="Models\KeywordDataType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\AssignedKeyword.cs" />
-    <Compile Include="ViewModels\DropZeneKeyModel.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
