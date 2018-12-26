@@ -138,11 +138,11 @@
                             });
                         }
                         else {
-                            $("#TextBoxContainer").children().last().remove();
+                            $("#TextBoxContainer").children().empty();
                         }
                     },
                     error: function (xhr) {
-                        $("#TextBoxContainer").children().last().remove();
+                        $("#TextBoxContainer").children().empty();
                     },
 
                 });

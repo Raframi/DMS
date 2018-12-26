@@ -114,23 +114,31 @@ namespace DMSWeb.Controllers
         [HttpPost]
         public ActionResult PassArray(DocumentType documentType)
         {
-            var DocumentType = db.DocumentType.Include(cm => cm.Keywords).SingleOrDefault(x => x.DocumentTypeId == documentType.DocumentTypeId);
-
-            var KeyWord = DocumentType.Keywords.ToList();
-
-            var Keywords = new List<AssignedKeyword>();
-            foreach (var keyword in KeyWord)
+            if (documentType.DocumentTypeId != 0)
             {
-                Keywords.Add(new AssignedKeyword
-                {
-//                    KeywordId = keyword.KeywordId,
-                    KeywordName = keyword.KeywordName,
-                });
-            }
+                var DocumentType = db.DocumentType.Include(cm => cm.Keywords).SingleOrDefault(x => x.DocumentTypeId == documentType.DocumentTypeId);
 
-            //return Json(DocumentType, JsonRequestBehavior.DenyGet);
-            //Do your processing
-            return Json(Keywords);
+                var KeyWord = DocumentType.Keywords.ToList();
+
+                var Keywords = new List<AssignedKeyword>();
+                foreach (var keyword in KeyWord)
+                {
+                    Keywords.Add(new AssignedKeyword
+                    {
+                        //                    KeywordId = keyword.KeywordId,
+                        KeywordName = keyword.KeywordName,
+                    });
+                }
+
+                //return Json(DocumentType, JsonRequestBehavior.DenyGet);
+                //Do your processing
+                return Json(Keywords);
+            }
+            else
+            {
+                var Keywords = new List<AssignedKeyword>();
+                return Json(Keywords);
+            }
         }
     }
 }
