@@ -20,7 +20,11 @@
     </div>
     <br />
     <div>
-        @Html.DropDownList("DocumentTypeId", new SelectList(ViewBag.DocumentType, "DocumentTypeId", "DocumentTypeName"))
+        @Html.DropDownList("DdlDocumentType", new SelectList(ViewBag.DocumentType, "DocumentTypeId", "DocumentTypeName"), "-- Select DocumentType --", new { @class = "form-control" })
+    </div>
+    <br />
+    <div id="TextBoxContainer">
+        <!--Textboxes will be added here -->
     </div>
     <div>
         <input type="submit" id="Submit" name="Submit" class="btn btn-success m-t-5" value="Submit" />
@@ -113,21 +117,39 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            $("#btn").click(function () {
+            $("#DdlDocumentType").change(function () {
+                var DocumentType = {};
+                DocumentType.DocumentTypeID = $('#DdlDocumentType').val();
+
                 $.ajax({
                     type: "POST",
                     contentType: "application/json",
-                    data: '{array:["value1", "value2", "value3", "value4", "value5"]}',
-                    url: "DropZone/PassArray",
+                    data: JSON.stringify(DocumentType),
+                    url: "/DropZone/PassArray",
                     dataType: "json",
                     success: function (data) {
-                        alert(data.d);
+                        if (data.length !== 0) {
+                            $.each(data, function (index, element) {
+                                var Name = element.KeywordName;
+                                var div = $("<div />");
+                                div.html(GenerateTextbox(Name));
+                                $("#TextBoxContainer").append(div);
+                            });
+                        }
+                        else {
+                            $("#TextBoxContainer").remove();
+                        }
                     },
-                    error: function (XMLHttpRequest, textStatus, errorThrown) {
-                        debugger;
-                    }
+                    error: function (xhr) {
+                        $("#TextBoxContainer").remove();
+                    },
+
                 });
             });
         });
+
+        function GenerateTextbox(Name) {
+            return '<div class="form-group"> <label for="' + Name + '" class="control-label col-md-2">' + Name + '</label> <div class="col-md-10"><input name = "' + Name + '" type="text" value = "" class="form-control"/> </div></div><br /><br />'
+        }
     </script>
 }

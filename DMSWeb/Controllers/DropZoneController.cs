@@ -7,10 +7,8 @@ using System.Data;
 using System.Data.Entity;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Services;
 
 namespace DMSWeb.Controllers
 {
@@ -113,15 +111,26 @@ namespace DMSWeb.Controllers
             ViewBag.Keywords = viewModel;
         }
 
-        [WebMethod]
-        public string PassArray(string DocumentTypeID)
+        [HttpPost]
+        public ActionResult PassArray(DocumentType documentType)
         {
-            var DocumentType = db.DocumentType.Include(cm => cm.Keywords).SingleOrDefault(x => x.DocumentTypeId == int.Parse(DocumentTypeID));
+            var DocumentType = db.DocumentType.Include(cm => cm.Keywords).SingleOrDefault(x => x.DocumentTypeId == documentType.DocumentTypeId);
 
+            var KeyWord = DocumentType.Keywords.ToList();
 
+            var Keywords = new List<AssignedKeyword>();
+            foreach (var keyword in KeyWord)
+            {
+                Keywords.Add(new AssignedKeyword
+                {
+//                    KeywordId = keyword.KeywordId,
+                    KeywordName = keyword.KeywordName,
+                });
+            }
 
+            //return Json(DocumentType, JsonRequestBehavior.DenyGet);
             //Do your processing
-            return "success";
+            return Json(Keywords);
         }
     }
 }
