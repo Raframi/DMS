@@ -38,7 +38,7 @@ namespace DMSWeb.Controllers
 
         }
 
-        public ActionResult SaveUploadedFile(IEnumerable<HttpPostedFileBase> files)
+        public ActionResult SaveUploadedFile(IEnumerable<HttpPostedFileBase> files, FormCollection formCollection)
         {
             bool SavedSuccessfully = true;
             string fName = "";
