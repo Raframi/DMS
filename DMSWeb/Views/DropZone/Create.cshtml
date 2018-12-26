@@ -120,7 +120,7 @@
             $("#DdlDocumentType").change(function () {
                 var DocumentType = {};
                 DocumentType.DocumentTypeID = $('#DdlDocumentType').val();
-
+                $("#TextBoxContainer").children().empty();
                 $.ajax({
                     type: "POST",
                     contentType: "application/json",
@@ -129,6 +129,7 @@
                     dataType: "json",
                     success: function (data) {
                         if (data.length !== 0) {
+                            $("#TextBoxContainer").children().empty();
                             $.each(data, function (index, element) {
                                 var Name = element.KeywordName;
                                 var div = $("<div />");
@@ -137,11 +138,11 @@
                             });
                         }
                         else {
-                            $("#TextBoxContainer").remove();
+                            $("#TextBoxContainer").children().last().remove();
                         }
                     },
                     error: function (xhr) {
-                        $("#TextBoxContainer").remove();
+                        $("#TextBoxContainer").children().last().remove();
                     },
 
                 });
